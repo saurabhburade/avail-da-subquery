@@ -8,13 +8,13 @@ export async function handleEthBlock(block: EthereumBlock): Promise<void> {
   logger.info(`New BLOCK ETHEREUM ::::::  ${block.number.toString()}`);
   logger.info(`New BLOCK ETHEREUM time::::::  ${block.timestamp.toString()}`);
   // Do something with each block handler here
-  const provider = new ethers.providers.JsonRpcProvider(
-    "https://eth.llamarpc.com"
-  );
+//   const provider = new ethers.providers.JsonRpcProvider(
+//     "https://eth.llamarpc.com"
+//   );
 
   const oracleContract = OneinchABIAbi__factory.connect(
     ORACLE_ADDRESS,
-    provider
+    api
   );
   const eth = await oracleContract.getRate(
     "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
